@@ -1,11 +1,29 @@
-const SUPABASE_URL = "https://mjpxtkqvdalpmcudfagn.supabase.co";
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-const SUPABASE_ANON_KEY = "sb_publishable_mnulkfbifdqxyQ5WT-9Tig_uPqTEdNB";
+    const fullName = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-window.supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
+    console.log("Registering:", email);
 
-console.log("Supabase Connected");
-console.log(window.supabaseClient);
+    const { data, error } = await window.supabaseClient.auth.signUp({
+        email,
+        password,
+        options: {
+            data: {
+                full_name: fullName
+            }
+        }
+    });
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
+    if (error) {
+        alert("ERROR: " + error.message);
+        return;
+    }
+
+    alert(JSON.stringify(data, null, 2));
+});
