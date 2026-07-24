@@ -6,29 +6,31 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    console.log("Registering:", email);
+
     const { data, error } = await window.supabaseClient.auth.signUp({
 
         email: email,
         password: password,
 
         options: {
-
             data: {
                 full_name: fullName
             }
-
         }
 
     });
 
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
     if (error) {
-
-        alert(error.message);
-
-    } else {
-
-        alert("Registration Successful! Please check your email to verify your account.");
-
+        alert("ERROR: " + error.message);
+        return;
     }
+
+    alert("SUCCESS");
+
+    console.log(data);
 
 });
