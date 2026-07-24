@@ -10,7 +10,10 @@ if (newsletterForm) {
 
         const email = emailInput.value.trim();
 
-        const { error } = await window.supabaseClient
+        console.log("Submitting email:", email);
+        console.log("Supabase client:", window.supabaseClient);
+
+        const { data, error } = await window.supabaseClient
             .from("newsletter_subscribers")
             .insert([
                 {
@@ -18,19 +21,22 @@ if (newsletterForm) {
                 }
             ]);
 
+        console.log("DATA:", data);
+        console.log("ERROR:", error);
+
         if (error) {
-            console.error(error);
+            console.error("SUPABASE ERROR:", error);
 
             if (error.code === "23505") {
                 message.textContent = "This email is already subscribed.";
             } else {
-                message.textContent = "Subscription failed. Please try again.";
+                message.textContent =
+                    "Subscription failed: " + error.message;
             }
 
             return;
         }
 
-        // Clear the form only after successful submission
         newsletterForm.reset();
 
         message.textContent =
