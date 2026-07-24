@@ -1,11 +1,10 @@
 document.getElementById("registerForm").addEventListener("submit", async (e) => {
+
     e.preventDefault();
 
     const fullName = document.getElementById("fullname").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
-    console.log("Registering:", email);
 
     const { data, error } = await window.supabaseClient.auth.signUp({
         email,
@@ -17,13 +16,19 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
         }
     });
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
-
     if (error) {
-        alert("ERROR: " + error.message);
+        alert(error.message);
         return;
     }
 
-    alert(JSON.stringify(data, null, 2));
+    console.log(data);
+
+    if (data.user && data.session) {
+        alert("Registration successful. You are now logged in.");
+    } else if (data.user) {
+        alert("Registration successful.");
+    } else {
+        alert("Unknown response from Supabase.");
+    }
+
 });
