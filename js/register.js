@@ -1,121 +1,42 @@
-const registerForm = document.getElementById("registerForm");
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
 
-if (registerForm) {
+    e.preventDefault();
 
-    registerForm.addEventListener("submit", async (e) => {
+    const fullName = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-        e.preventDefault();
+    console.clear();
+    console.log("Starting signup...");
 
-        const form = e.target;
-        const message = document.getElementById("message");
+    try {
 
-        const fullName = document
-            .getElementById("fullname")
-            .value
-            .trim();
-
-        const email = document
-            .getElementById("email")
-            .value
-            .trim();
-
-        const password = document
-            .getElementById("password")
-            .value;
-
-        console.log("Registering:", email);
-        console.log("Supabase client:", window.supabaseClient);
-
-        /*
-        ==========================================
-        CHECK SUPABASE CONNECTION
-        ==========================================
-        */
-
-        if (!window.supabaseClient) {
-
-            message.textContent =
-                "Registration system is not connected.";
-
-            console.error(
-                "ERROR: window.supabaseClient is undefined."
-            );
-
-            return;
-        }
-
-        /*
-        ==========================================
-        REGISTER USER
-        ==========================================
-        */
-
-        const { data, error } =
-            await window.supabaseClient.auth.signUp({
-
-                email: email,
-
-                password: password,
-
-                options: {
-
-                    data: {
-
-                        full_name: fullName
-
-                    }
-
+        const response = await window.supabaseClient.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: {
+                    full_name: fullName
                 }
+            }
+        });
 
-            });
+        console.log("FULL RESPONSE:");
+        console.log(response);
 
-        console.log("DATA:", data);
-        console.log("ERROR:", error);
-
-        /*
-        ==========================================
-        HANDLE ERROR
-        ==========================================
-        */
-
-        if (error) {
-
-            console.error(
-                "REGISTRATION ERROR:",
-                error
-            );
-
-            message.textContent =
-                "Registration failed: " + error.message;
-
+        if (response.error) {
+            alert(response.error.message);
             return;
         }
 
-        /*
-        ==========================================
-        SUCCESS
-        ==========================================
-        */
+        alert("Signup request completed.");
 
-        form.reset();
+    } catch (err) {
 
-        if (data.user && !data.session) {
+        console.error("EXCEPTION:");
+        console.error(err);
+        alert(err.message);
 
-            message.textContent =
-                "Registration successful. Please check your email to confirm your account.";
+    }
 
-        } else {
-
-            message.textContent =
-                "Registration successful. You are now logged in.";
-
-        }
-
-        console.log(
-            "Registration complete:",
-            data
-        );
-
-    });
-
-}
+});
