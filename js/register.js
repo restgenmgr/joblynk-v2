@@ -1,46 +1,121 @@
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
+const registerForm = document.getElementById("registerForm");
 
-    e.preventDefault();
+if (registerForm) {
 
-    const form = e.target;
+    registerForm.addEventListener("submit", async (e) => {
 
-    const fullName = document.getElementById("fullname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+        e.preventDefault();
 
-    console.log("Registering:", email);
+        const form = e.target;
+        const message = document.getElementById("message");
 
-    const { data, error } =
-        await window.supabaseClient.auth.signUp({
+        const fullName = document
+            .getElementById("fullname")
+            .value
+            .trim();
 
-            email: email,
-            password: password,
+        const email = document
+            .getElementById("email")
+            .value
+            .trim();
 
-            options: {
-                data: {
-                    full_name: fullName
+        const password = document
+            .getElementById("password")
+            .value;
+
+        console.log("Registering:", email);
+        console.log("Supabase client:", window.supabaseClient);
+
+        /*
+        ==========================================
+        CHECK SUPABASE CONNECTION
+        ==========================================
+        */
+
+        if (!window.supabaseClient) {
+
+            message.textContent =
+                "Registration system is not connected.";
+
+            console.error(
+                "ERROR: window.supabaseClient is undefined."
+            );
+
+            return;
+        }
+
+        /*
+        ==========================================
+        REGISTER USER
+        ==========================================
+        */
+
+        const { data, error } =
+            await window.supabaseClient.auth.signUp({
+
+                email: email,
+
+                password: password,
+
+                options: {
+
+                    data: {
+
+                        full_name: fullName
+
+                    }
+
                 }
-            }
 
-        });
+            });
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+        console.log("DATA:", data);
+        console.log("ERROR:", error);
 
-    if (error) {
-        alert("ERROR: " + error.message);
-        return;
-    }
+        /*
+        ==========================================
+        HANDLE ERROR
+        ==========================================
+        */
 
-    // Clear form after successful registration
-    form.reset();
+        if (error) {
 
-    if (data.user && !data.session) {
-        alert("Registration successful. Please check your email to confirm your account.");
-    } else {
-        alert("Registration successful. You are now logged in.");
-    }
+            console.error(
+                "REGISTRATION ERROR:",
+                error
+            );
 
-    console.log(data);
+            message.textContent =
+                "Registration failed: " + error.message;
 
-});
+            return;
+        }
+
+        /*
+        ==========================================
+        SUCCESS
+        ==========================================
+        */
+
+        form.reset();
+
+        if (data.user && !data.session) {
+
+            message.textContent =
+                "Registration successful. Please check your email to confirm your account.";
+
+        } else {
+
+            message.textContent =
+                "Registration successful. You are now logged in.";
+
+        }
+
+        console.log(
+            "Registration complete:",
+            data
+        );
+
+    });
+
+}
