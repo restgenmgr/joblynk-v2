@@ -1,64 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>Dashboard</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>Candidate Dashboard</h1>
-
-<p id="welcome"></p>
-
-<button id="logout">
-
-Logout
-
-</button>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-
 <script>
+document.addEventListener("DOMContentLoaded", async () => {
 
-(async ()=>{
+    const {
+        data: { session },
+        error
+    } = await window.supabaseClient.auth.getSession();
 
-const { data } =
-await window.supabaseClient.auth.getUser();
+    if (error || !session) {
+        window.location.href = "login.html";
+        return;
+    }
 
-if(!data.user){
+    const user = session.user;
 
-window.location="login.html";
-return;
+    document.getElementById("welcome").innerHTML =
+        "Welcome <strong>" +
+        (user.user_metadata.full_name || user.email) +
+        "</strong>";
 
-}
+    document.getElementById("logout").onclick = async () => {
 
-document.getElementById("welcome").innerHTML=
-"Welcome <strong>"+data.user.user_metadata.full_name+"</strong>";
+        await window.supabaseClient.auth.signOut();
 
-})();
+        window.location.href = "login.html";
 
-document.getElementById("logout").onclick = async ()=>{
+    };
 
-await window.supabaseClient.auth.signOut();
-
-window.location="login.html";
-
-}
-
+});
 </script>
-
-</body>
-
-</html>
