@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Candidate Dashboard</h1>
+
+<p id="welcome"></p>
+
+<button id="logout">
+
+Logout
+
+</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+
+<script>
+
+(async ()=>{
+
+const { data } =
+await window.supabaseClient.auth.getUser();
+
+if(!data.user){
+
+window.location="login.html";
+return;
+
+}
+
+document.getElementById("welcome").innerHTML=
+"Welcome <strong>"+data.user.user_metadata.full_name+"</strong>";
+
+})();
+
+document.getElementById("logout").onclick = async ()=>{
+
+await window.supabaseClient.auth.signOut();
+
+window.location="login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
