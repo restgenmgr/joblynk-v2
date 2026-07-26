@@ -1,23 +1,32 @@
+console.log("login.js loaded");
+
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const { data, error } = await window.supabaseClient.auth.signInWithPassword({
-        email,
-        password
-    });
+    console.log("Attempting login...");
+
+    const { data, error } =
+        await window.supabaseClient.auth.signInWithPassword({
+            email,
+            password
+        });
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
 
     if (error) {
         alert(error.message);
         return;
     }
 
-    console.log("Login successful:", data);
+    alert("Login Successful!");
 
-    // Redirect to dashboard
+    console.log("Redirecting to dashboard...");
+
     window.location.href = "dashboard.html";
 
 });
