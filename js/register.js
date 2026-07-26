@@ -1,89 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+console.log("register.js loaded");
 
-<head>
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    const fullName = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const confirmEmail = document.getElementById("confirmEmail").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const optIn = document.getElementById("optIn").checked;
 
-<title>Candidate Registration | JobLynk.live</title>
+    if (email.toLowerCase() !== confirmEmail.toLowerCase()) {
+        alert("Email addresses do not match. Please check and try again.");
+        return;
+    }
 
-<link rel="stylesheet" href="css/style.css">
+    console.log("Attempting registration...");
 
-</head>
+    const { data, error } = await window.supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            emailRedirectTo: "https://joblynk.live/dashboard.html",
+            data: {
+                full_name: fullName,
+                phone: phone,
+                opt_in: optIn
+            }
+        }
+    });
 
-<body>
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
 
-<div class="container">
+    if (error) {
+        alert(error.message);
+        return;
+    }
 
-<h1>Candidate Registration</h1>
-
-<form id="registerForm">
-
-<p>
-<input
-type="text"
-id="fullname"
-placeholder="Full Name"
-required>
-</p>
-
-<p>
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required>
-</p>
-
-<p>
-<input
-type="email"
-id="confirmEmail"
-placeholder="Confirm Email Address"
-required>
-</p>
-
-<p>
-<input
-type="tel"
-id="phone"
-placeholder="Phone Number"
-required>
-</p>
-
-<p>
-<input
-type="password"
-id="password"
-placeholder="Password"
-required>
-</p>
-
-<p>
-<label style="display:flex;align-items:center;gap:8px;color:#555;font-size:0.95rem;">
-<input
-type="checkbox"
-id="optIn"
-style="width:auto;">
-I'd like to receive job alerts and updates from JobLynk.live
-</label>
-</p>
-
-<p>
-<button type="submit">Create Account</button>
-</p>
-
-</form>
-
-<div id="message"></div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-<script src="js/register.js"></script>
-
-</body>
-
-</html>
+    alert("Account created! Please check your email to confirm your registration.");
+    console.log("Redirecting to login...");
+    window.location.href = "login.html";
+});
