@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Candidate Dashboard</title>
 
 <link rel="stylesheet" href="css/style.css">
- 
+
 </head>
 
 <body>
@@ -29,49 +30,40 @@ Logout
 <script src="js/supabase.js"></script>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", async () => {
 
-    console.log("Dashboard loaded");
+    const {
+        data: { session },
+        error
+    } = await window.supabaseClient.auth.getSession();
 
-    const welcome = document.getElementById("welcome");
-    const logout = document.getElementById("logout");
+    if (error || !session) {
 
-    console.log("Welcome element:", welcome);
-    console.log("Logout element:", logout);
-
-    const { data, error } = await window.supabaseClient.auth.getSession();
-
-    console.log("Session:", data);
-    console.log("Error:", error);
-
-    if (error) {
-        console.error(error);
-        return;
-    }
-
-    if (!data.session) {
-        console.log("No active session");
         window.location.href = "login.html";
         return;
+
     }
 
-    if (!welcome) {
-        console.error("welcome element not found!");
-        return;
-    }
+    const user = session.user;
 
-    const user = data.session.user;
+    document.getElementById("welcome").innerHTML =
+        "Welcome <strong>" +
+        (user.user_metadata.full_name || user.email) +
+        "</strong>";
 
-    welcome.innerHTML =
-        `Welcome <strong>${user.user_metadata.full_name || user.email}</strong>`;
+    document.getElementById("logout").onclick = async () => {
 
-    logout.addEventListener("click", async () => {
         await window.supabaseClient.auth.signOut();
+
         window.location.href = "login.html";
-    });
+
+    };
 
 });
+
 </script>
 
 </body>
+
 </html>
