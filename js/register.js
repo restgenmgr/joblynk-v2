@@ -15,6 +15,15 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
         return;
     }
 
+    const hasLower = /[a-z]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasDigit = /[0-9]/.test(password);
+
+    if (password.length < 8 || !hasLower || !hasUpper || !hasDigit) {
+        alert("Password must be at least 8 characters and include a lowercase letter, an uppercase letter, and a number.");
+        return;
+    }
+
     console.log("Attempting registration...");
 
     const { data, error } = await window.supabaseClient.auth.signUp({
@@ -38,7 +47,15 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
         return;
     }
 
-    alert("Account created! Please check your email to confirm your registration.");
+    if (data && data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+        alert("This email is already registered. Try logging in instead, or use 'Forgot password' on the login page.");
+        return;
+    }
+
+    alert("Account created! Please check your email (including spam/junk folder) to confirm your registration.");
+
     console.log("Redirecting to login...");
+
+    document.getElementById("registerForm").reset();
     window.location.href = "login.html";
 });
