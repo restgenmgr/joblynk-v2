@@ -1,0 +1,185 @@
+$aboutContent = @'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | JobLynk.live</title>
+    <meta name="description" content="JobLynk.live bridges the gap between executive talent and career opportunities in hospitality and maritime industries. Founded by Nigel Thomas, 30+ years experience.">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLRRV5DMXZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CLRRV5DMXZ');
+    </script>
+    <meta name="google-adsense-account" content="ca-pub-4282121192943910">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4282121192943910" crossorigin="anonymous"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; background: #1a0000; color: #d4b896; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        nav { background: #2d0000; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fbbf24; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-links a { color: #f5e6c8; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: #1a6d73; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { color: #f5e6c8; background: none; border: none; font-size: 1rem; cursor: pointer; }
+        .dropdown-content { display: none; position: absolute; background: #2d0000; min-width: 160px; border-radius: 8px; top: 25px; }
+        .dropdown-content a { color: #f5e6c8; padding: 10px 15px; display: block; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .hero { background: linear-gradient(135deg, #4a0000 0%, #800000 100%); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        .content { padding: 40px 0; }
+        .content h2 { color: #fbbf24; margin: 30px 0 20px; font-size: 1.6rem; }
+        .highlight { background: #2d0000; padding: 30px; border-radius: 16px; margin: 30px 0; text-align: center; }
+        .founder-card { background: #2d0000; padding: 30px; border-radius: 16px; margin: 30px 0; display: flex; flex-wrap: wrap; gap: 30px; }
+        .founder-info { flex: 2; }
+        .founder-stats { flex: 1; background: #4a0000; padding: 20px; border-radius: 12px; }
+        .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
+        .sector-tag { background: #4a0000; color: #fbbf24; padding: 10px 15px; border-radius: 30px; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .stat-card { background: #2d0000; padding: 25px; border-radius: 12px; text-align: center; }
+        .stat-card h3 { font-size: 2rem; color: #fbbf24; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a0000; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 20px; border: none; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background: #4a0000; color: #fbbf24; }
+        footer { background: #0d0000; color: #d4b896; text-align: center; padding: 40px 20px; margin-top: 40px; }
+        .footer-links a { color: #d4b896; text-decoration: none; margin: 0 10px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } nav .container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">JobLynk<span style="color:#1a6d73">.live</span></a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <div class="dropdown"><button class="dropbtn">Blog &#9660;</button>
+                    <div class="dropdown-content">
+                        <a href="/ai-impact-2026-2027.html">&#129302; AI 2026/2027</a>
+                        <a href="/best-ats-resume-format-hospitality-2026.html">&#128196; ATS Resume Guide</a>
+                        <a href="/100-hospitality-interview-questions.html">&#127908; Interview Q&amp;A</a>
+                    </div>
+                </div>
+                <div class="dropdown"><button class="dropbtn">Company &#9660;</button>
+                    <div class="dropdown-content">
+                        <a href="/about.html">About</a>
+                        <a href="/contact.html">Contact</a>
+                        <a href="/partners.html">Partners</a>
+                        <a href="/privacy.html">Privacy</a>
+                        <a href="/terms.html">Terms</a>
+                    </div>
+                </div>
+                <a href="/pay.html">Pay Portal</a>
+                <a href="/language.html" style="background:#fbbf24; color:#1a0000; padding:5px 12px; border-radius:20px;">&#127760; Translate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>About JobLynk.live</h1>
+        <p>Bridging the gap between executive talent and career opportunities</p>
+    </div>
+
+    <div class="container content">
+        <div class="highlight">
+            <h2 style="color:#fbbf24; margin-top:0;">&#127919; Our Mission</h2>
+            <p style="font-size:1.1rem;">JobLynk.live bridges the gap between employers, HR managers, and candidates. We help candidates prepare, upskill, and become better equipped when searching for jobs.</p>
+        </div>
+
+        <div class="founder-card">
+            <div class="founder-info">
+                <h2 style="color:#fbbf24; margin-top:0;">&#128188; Meet Our Founder</h2>
+                <h3 style="color:#fbbf24;">Nigel Thomas</h3>
+                <p><strong>30+ years of executive experience</strong> on cruise ships, luxury resorts, and hotels across the <strong>Middle East, USA, and India</strong>.</p>
+                <p>&#128279; <strong>Web Bio:</strong> <a href="https://nigelthomas.live" target="_blank" style="color:#fbbf24;">nigelthomas.live</a></p>
+            </div>
+            <div class="founder-stats">
+                <h3 style="color:#fbbf24;">&#128202; By the Numbers</h3>
+                <ul><li>30+ Years Global Experience</li><li>10,000+ Professionals Mentored</li><li>Executive Roles on Cruise Lines</li><li>Resort Management USA &amp; Middle East</li></ul>
+            </div>
+        </div>
+
+        <h2>&#127970; 14 Executive Sectors We Cover</h2>
+        <div class="sectors-grid">
+            <div class="sector-tag">&#128674; Cruise Line Operations</div>
+            <div class="sector-tag">&#127976; Luxury Hotels</div>
+            <div class="sector-tag">&#128332; Middle East Hospitality</div>
+            <div class="sector-tag">&#127869; F&amp;B Management</div>
+            <div class="sector-tag">&#127976; Front Office</div>
+            <div class="sector-tag">&#129465; Housekeeping</div>
+            <div class="sector-tag">&#127859; Culinary Arts</div>
+            <div class="sector-tag">&#128202; Revenue Management</div>
+            <div class="sector-tag">&#128101; Human Resources</div>
+            <div class="sector-tag">&#128295; Engineering</div>
+            <div class="sector-tag">&#9875; Maritime Deck</div>
+            <div class="sector-tag">&#128295; Maritime Engine</div>
+            <div class="sector-tag">&#129496; Wellness &amp; Spa</div>
+            <div class="sector-tag">&#127920; Retail &amp; Casino</div>
+        </div>
+
+        <h2>&#127942; Our Impact</h2>
+        <div class="stats-grid">
+            <div class="stat-card"><h3>10,000+</h3><p>Active Job Listings</p></div>
+            <div class="stat-card"><h3>50,000+</h3><p>Registered Candidates</p></div>
+            <div class="stat-card"><h3>14</h3><p>Executive Sectors</p></div>
+            <div class="stat-card"><h3>3</h3><p>Global Markets</p></div>
+        </div>
+
+        <div class="highlight">
+            <h2 style="color:#fbbf24; margin-top:0;">&#128236; Stay in the Loop</h2>
+            <p style="font-size:1.05rem; margin-bottom:20px;">Subscribe for new job alerts, career tips, and hospitality &amp; maritime industry updates.</p>
+            <form id="subscribeForm" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:500px; margin:0 auto;">
+                <input
+                    type="email"
+                    id="subscribeEmail"
+                    placeholder="Your email address"
+                    required
+                    style="flex:1; min-width:220px; padding:12px 16px; border-radius:30px; border:none; font-size:1rem;">
+                <button type="submit" class="btn" style="margin-top:0;">Subscribe</button>
+            </form>
+            <p id="subscribeStatus" style="margin-top:12px; color:#fbbf24; font-size:0.95rem;"></p>
+        </div>
+
+        <div style="text-align:center;">
+            <a href="/contact.html" class="btn">Get in Touch &#8594;</a>
+            <a href="/#resources" class="btn" style="background:#4a0000; color:#fbbf24; margin-left:15px;">Explore Resources &#8594;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/partners.html">Partners</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/sitemap.xml">Sitemap</a>
+        </div>
+        <p>&copy; 2026 JobLynk.live &mdash; Premier Digital Platform for Hospitality &amp; Maritime Careers</p>
+        <p style="margin-top:10px;">Founded by Nigel Thomas &mdash; 30+ years cruise ships, resorts in Middle East, USA, and India | <a href="https://nigelthomas.live" target="_blank" style="color:#fbbf24;">nigelthomas.live</a></p>
+    </footer>
+
+    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #2d0000; padding: 10px 15px; border-radius: 30px;"></div>
+    <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/subscribe.js"></script>
+</body>
+</html>
+'@
+
+$root = "C:\Users\admin\Desktop\joblynk-v2"
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText("$root\about.html", $aboutContent, $utf8NoBom)
+
+Write-Host "Done. New file size:"
+Get-Item "$root\about.html" | Format-List FullName, Length
