@@ -1,389 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JobLynk.live | Hospitality Jobs | Hotel Careers | Executive Recruitment</title>
+<title>JobLynk.live | Career Readiness & Professional Performance</title>
 
-<meta name="description" content="JobLynk.live connects hospitality professionals with hotels, resorts, restaurants, cruise lines and executive employers across India and international markets.">
+<meta name="description" content="JobLynk helps professionals measure and improve career readiness through resume analysis, interview preparation and performance-focused career development.">
 
-<meta name="keywords" content="hotel jobs, hospitality careers, restaurant jobs, cruise jobs, executive recruitment, hotel management">
+<link rel="canonical" href="https://joblynk.live/">
 
-<meta name="author" content="Nigel Thomas">
+<style>
+*{
+    box-sizing:border-box;
+}
 
-<meta name="robots" content="index,follow">
+html{
+    scroll-behavior:smooth;
+}
 
-<link rel="canonical" href="https://www.joblynk.live/">
+body{
+    margin:0;
+    background:#0a0a0a;
+    color:#f2f2f2;
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;
+}
 
-<meta name="google-adsense-account" content="ca-pub-4282121192943910">
+a{
+    color:#d4af37;
+    text-decoration:none;
+}
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CLRRV5DMXZ"></script>
+a:hover{
+    color:#f0cf62;
+}
 
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config','G-CLRRV5DMXZ');
-</script>
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:0 auto;
+}
 
-<!-- AdSense -->
-<script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4282121192943910"
-crossorigin="anonymous"></script>
+/* HEADER */
 
-<link rel="stylesheet" href="css/style.css">
+header{
+    background:#0a0a0a;
+    border-bottom:1px solid #d4af37;
+    padding:18px 0;
+}
 
+.header-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#ffffff;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#d4af37;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+nav a{
+    display:block;
+    padding:9px 13px;
+    color:#ffffff;
+    border:1px solid #333333;
+    background:#111111;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#d4af37;
+    border-color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+    padding:95px 0 85px;
+    border-bottom:1px solid #292929;
+}
+
+.eyebrow{
+    color:#d4af37;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+h1{
+    color:#ffffff;
+    font-size:clamp(42px,6vw,70px);
+    line-height:1.08;
+    max-width:900px;
+    margin:18px 0 25px;
+}
+
+.hero-text{
+    max-width:800px;
+    color:#c9c9c9;
+    font-size:20px;
+}
+
+.gold-message{
+    margin-top:25px;
+    color:#d4af37;
+    font-size:19px;
+    font-weight:700;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.button{
+    display:inline-block;
+    padding:14px 22px;
+    margin:5px 8px 5px 0;
+    border:1px solid #d4af37;
+    background:#d4af37;
+    color:#0a0a0a;
+    font-weight:700;
+}
+
+.button:hover{
+    background:#f0cf62;
+    color:#0a0a0a;
+    text-decoration:none;
+}
+
+.button-outline{
+    background:#0a0a0a;
+    color:#d4af37;
+}
+
+.button-outline:hover{
+    background:#191919;
+    color:#f0cf62;
+}
+
+/* SECTIONS */
+
+section{
+    padding:75px 0;
+    border-bottom:1px solid #292929;
+}
+
+.section-title{
+    max-width:780px;
+    margin-bottom:40px;
+}
+
+h2{
+    color:#ffffff;
+    font-size:38px;
+    line-height:1.2;
+    margin:0 0 15px;
+}
+
+.section-title p{
+    color:#aaa;
+    font-size:17px;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:#151515;
+    border:1px solid #333;
+    padding:28px;
+}
+
+.number{
+    color:#d4af37;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+h3{
+    color:#ffffff;
+    font-size:23px;
+    margin:12px 0;
+}
+
+.card p{
+    color:#bbb;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.feature{
+    background:#151515;
+    border-left:3px solid #d4af37;
+    padding:25px;
+}
+
+.feature p{
+    color:#bbb;
+}
+
+/* PRICING */
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.price-card{
+    background:#151515;
+    border:1px solid #444;
+    padding:30px;
+}
+
+.price-card.highlight{
+    border:2px solid #d4af37;
+}
+
+.price{
+    color:#d4af37;
+    font-size:35px;
+    font-weight:700;
+    margin:12px 0 20px;
+}
+
+.price-card ul{
+    padding-left:20px;
+    color:#c8c8c8;
+}
+
+.price-card li{
+    margin:9px 0;
+}
+
+/* ASSESSMENT */
+
+.assessment{
+    background:#151515;
+    border:1px solid #d4af37;
+    padding:50px 30px;
+    text-align:center;
+}
+
+.assessment p{
+    max-width:750px;
+    margin:0 auto;
+    color:#c4c4c4;
+    font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#050505;
+    padding:45px 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-title{
+    color:#ffffff;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+footer p{
+    color:#999;
+    font-size:14px;
+}
+
+.footer-links a{
+    display:block;
+    margin:7px 0;
+    color:#aaa;
+}
+
+.footer-links a:hover{
+    color:#d4af37;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .header-row{
+        display:block;
+    }
+
+    nav{
+        justify-content:flex-start;
+        margin-top:15px;
+    }
+
+    .grid,
+    .features,
+    .pricing,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    h1{
+        font-size:44px;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
-<!-- ===========================
-     NAVIGATION
-=========================== -->
-
-<nav>
+<header>
 
 <div class="container">
 
-<a href="index.html" class="logo">
-JobLynk<span>.live</span>
-</a>
+<div class="header-row">
 
-<ul class="nav-links">
+<a href="index.html" class="logo">Job<span>Lynk</span>.live</a>
 
-<li><a href="#">Home</a></li>
+<nav aria-label="Main navigation">
 
-<li><a href="#">Jobs</a></li>
+<a href="index.html">Home</a>
 
-<li><a href="#">Employers</a></li>
+<a href="blog.html">Career Resources</a>
 
-<li><a href="#">Career Resources</a></li>
+<a href="for-employers.html">Employers</a>
 
-<li><a href="#">Blog</a></li>
+<a href="about.html">About</a>
 
-<li><a href="#">About</a></li>
+<a href="contact.html">Contact</a>
 
-<li><a href="#">Contact</a></li>
-
-<li>
-<a class="translate-btn" href="#">
-🌐 Translate
-</a>
-</li>
-
-</ul>
-
-</div>
+<a href="contact.html">Start Assessment</a>
 
 </nav>
-
-<!-- ===========================
-     HERO
-=========================== -->
-
-<header class="hero">
-
-<div class="hero-overlay">
-
-<div class="container">
-
-<div class="hero-content">
-
-<p class="hero-top">
-Hospitality • Hotels • Resorts • Restaurants • Cruise Lines
-</p>
-
-<h1>
-
-Find Your Next<br>
-Hospitality Career 
-
-</h1>
-
-<p class="hero-text">
-
-Connecting talented hospitality professionals with leading hotels,
-restaurants, resorts, cruise lines and tourism employers across India,
-the Middle East and worldwide.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#" class="btn btn-primary">
-
-Browse Jobs
-
-</a>
-
-<a href="#" class="btn btn-secondary">
-
-Career Resources
-
-</a>
-
-</div>
-
-</div>
 
 </div>
 
 </div>
 
 </header>
-<!-- =====================================================
-     QUICK JOB SEARCH
-===================================================== -->
 
-<section class="job-search">
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
 
 <div class="container">
 
-<h2>Search Hospitality Jobs</h2>
+<div class="eyebrow">
+Career Performance &amp; Readiness Platform
+</div>
+
+<h1>
+Measure Your Career Readiness. Then Improve It.
+</h1>
+
+<p class="hero-text">
+JobLynk helps professionals prepare for their next career move through structured resume analysis, interview simulation and performance-focused career preparation.
+</p>
+
+<p class="gold-message">
+We measure preparation — not job outcomes.
+</p>
+
+<div class="buttons">
+
+<a class="button" href="contact.html">
+START YOUR READINESS ASSESSMENT
+</a>
+
+<a class="button button-outline" href="#how-it-works">
+SEE HOW IT WORKS
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how-it-works">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>How JobLynk Works</h2>
 
 <p>
-Explore opportunities across hotels, resorts, restaurants, cruise lines,
-clubs, cafés and hospitality management companies.
+A structured preparation system designed to help professionals understand where they are ready and where further preparation is required.
 </p>
 
-<form class="search-form">
-
-<input
-type="text"
-placeholder="Job Title, Department or Keyword">
-
-<input
-type="text"
-placeholder="City or Country">
-
-<select>
-
-<option>All Categories</option>
-
-<option>Hotels</option>
-
-<option>Restaurants</option>
-
-<option>Resorts</option>
-
-<option>Cruise Lines</option>
-
-<option>Catering</option>
-
-<option>Retail Food</option>
-
-<option>Executive Management</option>
-
-</select>
-
-<button type="submit">
-
-Search Jobs
-
-</button>
-
-</form>
-
 </div>
 
-</section>
 
-<!-- =====================================================
-     HOSPITALITY SECTORS
-===================================================== -->
+<div class="grid">
 
-<section class="sectors">
+<div class="card">
 
-<div class="container">
-
-<h2>Explore Hospitality Sectors</h2>
-
-<div class="sector-grid">
-
-<div class="sector-card">
-🏨
-<h3>Hotels</h3>
-<p>Luxury, Business, Boutique & Budget Hotels</p>
+<div class="number">
+01 — RESUME
 </div>
 
-<div class="sector-card">
-🏝
-<h3>Resorts</h3>
-<p>Beach, Hill & Destination Resorts</p>
-</div>
-
-<div class="sector-card">
-🍽
-<h3>Restaurants</h3>
-<p>Fine Dining, Casual Dining & QSR</p>
-</div>
-
-<div class="sector-card">
-🚢
-<h3>Cruise Lines</h3>
-<p>International Cruise Careers</p>
-</div>
-
-<div class="sector-card">
-☕
-<h3>Cafés</h3>
-<p>Coffee Chains & Boutique Cafés</p>
-</div>
-
-<div class="sector-card">
-👨‍💼
-<h3>Executive Careers</h3>
-<p>General Managers • Directors • CEOs</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     FEATURED EMPLOYERS
-===================================================== -->
-
-<section class="employers">
-
-<div class="container">
-
-<h2>Featured Employers</h2>
-
-<div class="employer-grid">
-
-<div class="employer-card">
-<h3>Luxury Hotels</h3>
-<p>5-Star International Hotel Groups</p>
-</div>
-
-<div class="employer-card">
-<h3>Restaurant Chains</h3>
-<p>National & International Brands</p>
-</div>
-
-<div class="employer-card">
-<h3>Cruise Companies</h3>
-<p>Worldwide Maritime Careers</p>
-</div>
-
-<div class="employer-card">
-<h3>Resort Groups</h3>
-<p>Premium Leisure Destinations</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     JOBLYNK STATISTICS
-===================================================== -->
-
-<section class="stats">
-
-<div class="container">
-
-<div class="stats-grid">
-
-<div>
-
-<h2>1000+</h2>
-
-<p>Jobs Posted</p>
-
-</div>
-
-<div>
-
-<h2>500+</h2>
-
-<p>Hospitality Employers</p>
-
-</div>
-
-<div>
-
-<h2>25+</h2>
-
-<p>Industry Categories</p>
-
-</div>
-
-<div>
-
-<h2>100+</h2>
-
-<p>Career Resources</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- =====================================================
-     LATEST CAREER RESOURCES
-===================================================== -->
-
-<section class="resources">
-
-<div class="container">
-
-<h2>Latest Hospitality Resources</h2>
-
-<p class="section-intro">
-Expert guides, hospitality training, operational tools and career advice
-written for hotel professionals, restaurateurs, chefs and hospitality executives.
-</p>
-
-<div class="resource-grid">
-
-<div class="resource-card">
-
-<h3>Hotel Operations</h3>
+<h3>
+Resume Analysis
+</h3>
 
 <p>
-Learn hotel management, SOPs, guest service excellence,
-leadership and operational best practices.
+Review resume structure, ATS compatibility, keyword alignment, relevance and the strength of measurable achievements.
 </p>
-
-<a href="#">Read More →</a>
 
 </div>
 
-<div class="resource-card">
 
-<h3>Restaurant Management</h3>
+<div class="card">
+
+<div class="number">
+02 — INTERVIEW
+</div>
+
+<h3>
+Interview Simulation
+</h3>
 
 <p>
-Food cost control, menu engineering,
-kitchen management and restaurant profitability.
+Practice structured questions for your target role and examine clarity, relevance, structure and outcome orientation.
 </p>
-
-<a href="#">Read More →</a>
 
 </div>
 
-<div class="resource-card">
 
-<h3>Cruise Careers</h3>
+<div class="card">
+
+<div class="number">
+03 — READINESS
+</div>
+
+<h3>
+Job Performance Index
+</h3>
 
 <p>
-Prepare for international cruise line interviews,
-contracts and career growth.
+Combine preparation signals into a structured readiness measurement that identifies areas requiring further work.
 </p>
-
-<a href="#">Read More →</a>
 
 </div>
 
@@ -393,44 +493,234 @@ contracts and career growth.
 
 </section>
 
-<!-- =====================================================
-     NEWSLETTER
-===================================================== -->
 
-<section class="newsletter">
+<!-- FEATURES -->
+
+<section id="features">
 
 <div class="container">
 
-<h2>Stay Ahead in Hospitality</h2>
+<div class="section-title">
+
+<h2>
+Career Preparation Tools
+</h2>
 
 <p>
-Receive hospitality career opportunities,
-industry updates and management resources directly in your inbox.
+JobLynk focuses on the quality of preparation before a professional enters the next career opportunity.
 </p>
 
-<form id="newsletterForm" class="newsletter-form">
+</div>
 
-<input
-type="email"
-id="newsletterEmail"
-placeholder="Enter your email address"
-required>
 
-<button type="submit">
-Subscribe
-</button>
+<div class="features">
 
-</form>
+<div class="feature">
 
-<p id="newsletterMessage"></p>
+<h3>
+Resume Intelligence
+</h3>
+
+<p>
+Identify weaknesses in resume structure, keywords, relevance and measurable professional achievements.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<h3>
+Interview Practice
+</h3>
+
+<p>
+Prepare for structured questions aligned with your target role, responsibilities and professional experience.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<h3>
+Readiness Measurement
+</h3>
+
+<p>
+Review preparation across multiple signals rather than depending on a single resume score.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<h3>
+Readiness Badge
+</h3>
+
+<p>
+Eligible Pro users can receive a JobLynk Readiness Badge based on the defined assessment framework.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+JobLynk Preparation Plans
+</h2>
+
+<p>
+Choose the level of preparation support that matches your current career development needs.
+</p>
+
+</div>
+
+
+<div class="pricing">
+
+
+<div class="price-card">
+
+<h3>
+Basic
+</h3>
+
+<div class="price">
+₹999
+</div>
+
+<ul>
+
+<li>AI Resume Scan</li>
+
+<li>Resume Score</li>
+
+<li>Core preparation insights</li>
+
+</ul>
+
+<a class="button button-outline" href="contact.html">
+GET STARTED
+</a>
+
+</div>
+
+
+<div class="price-card highlight">
+
+<h3>
+Smart Growth
+</h3>
+
+<div class="price">
+₹2,999
+</div>
+
+<ul>
+
+<li>Resume Optimization</li>
+
+<li>Interview Simulation</li>
+
+<li>Job Performance Index</li>
+
+</ul>
+
+<a class="button" href="contact.html">
+GET STARTED
+</a>
+
+</div>
+
+
+<div class="price-card">
+
+<h3>
+Pro Acceleration
+</h3>
+
+<div class="price">
+₹5,999
+</div>
+
+<ul>
+
+<li>Full Performance System</li>
+
+<li>Readiness Badge</li>
+
+<li>Priority support / processing</li>
+
+</ul>
+
+<a class="button button-outline" href="contact.html">
+GET STARTED
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="assessment">
+
+<h2>
+Ready to Measure Your Preparation?
+</h2>
+
+<p>
+Start the JobLynk readiness process and identify the areas that need attention before your next career move.
+</p>
+
+<div class="buttons">
+
+<a class="button" href="contact.html">
+START YOUR ASSESSMENT
+</a>
+
+<a class="button button-outline" href="about.html">
+LEARN ABOUT JOBLYNK
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -438,91 +728,63 @@ Subscribe
 
 <div class="footer-grid">
 
+
 <div>
 
-<h3>JobLynk.live</h3>
+<div class="footer-title">
+JobLynk.live
+</div>
 
 <p>
-
-Connecting hospitality professionals with career
-opportunities across India and international markets.
-
+Career readiness and professional performance preparation platform.
 </p>
-
-</div>
-
-<div>
-
-<h3>Quick Links</h3>
-
-<ul>
-
-<li><a href="#">Home</a></li>
-
-<li><a href="#">Jobs</a></li>
-
-<li><a href="#">Career Resources</a></li>
-
-<li><a href="#">Blog</a></li>
-
-<li><a href="#">Contact</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h3>Industries</h3>
-
-<ul>
-
-<li>Hotels</li>
-
-<li>Restaurants</li>
-
-<li>Resorts</li>
-
-<li>Cruise Lines</li>
-
-<li>Hospitality Management</li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h3>Follow JobLynk</h3>
 
 <p>
-
-LinkedIn<br>
-Facebook<br>
-Instagram<br>
-YouTube
-
+We measure preparation — not job outcomes.
 </p>
 
 </div>
 
+
+<div class="footer-links">
+
+<div class="footer-title">
+Explore
 </div>
 
-<hr>
+<a href="blog.html">Career Resources</a>
 
-<p class="copyright">
+<a href="for-employers.html">For Employers</a>
 
-© 2026 JobLynk.live • All Rights Reserved
+<a href="about.html">About</a>
 
-</p>
+<a href="contact.html">Contact</a>
+
+</div>
+
+
+<div class="footer-links">
+
+<div class="footer-title">
+Information
+</div>
+
+<a href="privacy.html">Privacy</a>
+
+<a href="terms.html">Terms</a>
+
+<a href="refund.html">Refund Policy</a>
+
+<a href="disclaimer.html">Disclaimer</a>
+
+</div>
+
+
+</div>
 
 </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-
-<script src="js/script.js"></script>
 
 </body>
 </html>
