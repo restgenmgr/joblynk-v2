@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard.html
+Disallow: /login.html
+Disallow: /register.html
+
+Sitemap: https://www.joblynk.live/sitemap.xml
